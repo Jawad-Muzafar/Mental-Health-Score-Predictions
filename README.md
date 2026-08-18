@@ -12,6 +12,9 @@ The repository now includes:
 - a FastAPI API for prediction requests
 - a polished frontend interface served directly from the project root
 
+## Deployment link:
+https://mental-health-score-predictions-3.onrender.com
+
 ## 🧪 Dataset
 
 The project uses a dataset named:
