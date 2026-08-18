@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mental Health Score Predictor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="aurora" aria-hidden="true">
+    <span class="blob blob-1"></span>
+    <span class="blob blob-2"></span>
+    <span class="blob blob-3"></span>
+  </div>
+
+  <main class="card" id="card">
+    <div class="topbar">
+      <div class="status-pill"><span class="dot"></span>AI wellbeing assistant</div>
+      <div class="mini-badge">Live forecast</div>
+    </div>
+
+    <div class="eyebrow">Digital Wellbeing · Prediction</div>
+    <h1>Mental Health Score</h1>
+    <p class="subtitle">Answer a few questions about your habits and get a predicted wellbeing score.</p>
+
+    <div class="stat-row" aria-label="Model overview">
+      <div class="stat-box">
+        <span>Model</span>
+        <strong>ML</strong>
+      </div>
+      <div class="stat-box">
+        <span>Range</span>
+        <strong>0–10</strong>
+      </div>
+      <div class="stat-box">
+        <span>Insights</span>
+        <strong>Smart</strong>
+      </div>
+    </div>
+
+    <form id="predict-form">
+      <div class="grid">
+
+        <div class="field">
+          <label for="Age">Age</label>
+          <input type="number" id="Age" name="Age" min="1" required value="25">
+        </div>
+
+        <div class="field">
+          <label for="Gender">Gender</label>
+          <select id="Gender" name="Gender" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="Country">Country</label>
+          <input type="text" id="Country" name="Country" required value="USA">
+        </div>
+
+        <div class="field">
+          <label for="Academic_Level">Academic Level</label>
+          <select id="Academic_Level" name="Academic_Level" required>
+            <option value="High School">High School</option>
+            <option value="Bachelor's" selected>Bachelor's</option>
+            <option value="Master's">Master's</option>
+            <option value="PhD">PhD</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="Most_Used_Platform">Most Used Platform</label>
+          <input type="text" id="Most_Used_Platform" name="Most_Used_Platform" required value="Instagram">
+        </div>
+
+        <div class="field">
+          <label for="Purpose_Of_Use">Purpose of Use</label>
+          <input type="text" id="Purpose_Of_Use" name="Purpose_Of_Use" required value="Social Media">
+        </div>
+
+        <div class="field">
+          <label for="Avg_Daily_Usage_Hours">Avg Daily Usage (hrs)</label>
+          <input type="number" step="0.1" id="Avg_Daily_Usage_Hours" name="Avg_Daily_Usage_Hours" min="0" max="24" required value="3.5">
+        </div>
+
+        <div class="field">
+          <label for="Daily_Unlocks">Daily Unlocks</label>
+          <input type="number" id="Daily_Unlocks" name="Daily_Unlocks" min="0" required value="10">
+        </div>
+
+        <div class="field">
+          <label for="Study_Hours">Study Hours</label>
+          <input type="number" step="0.1" id="Study_Hours" name="Study_Hours" min="0" max="24" required value="2.0">
+        </div>
+
+        <div class="field">
+          <label for="Physical_Activity_Hours">Physical Activity (hrs)</label>
+          <input type="number" step="0.1" id="Physical_Activity_Hours" name="Physical_Activity_Hours" min="0" max="24" required value="1.5">
+        </div>
+
+        <div class="field">
+          <label for="Sleep_Hours_Per_Night">Sleep Hours / Night</label>
+          <input type="number" step="0.1" id="Sleep_Hours_Per_Night" name="Sleep_Hours_Per_Night" min="0" max="24" required value="7.0">
+        </div>
+
+        <div class="field">
+          <label for="Stress_Level">Stress Level</label>
+          <select id="Stress_Level" name="Stress_Level" required>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select>
+        </div>
+
+      </div>
+
+      <button type="submit" id="submit-btn">
+        <span class="btn-label">Predict Score</span>
+      </button>
+    </form>
+
+    <div id="error" class="error hidden"></div>
+
+    <div id="result" class="result hidden">
+      <div class="gauge-wrap">
+        <svg class="gauge" viewBox="0 0 160 160">
+          <circle class="gauge-track" cx="80" cy="80" r="70"></circle>
+          <circle class="gauge-fill" id="gauge-fill" cx="80" cy="80" r="70"></circle>
+        </svg>
+        <div class="gauge-center">
+          <span id="score-value">0</span>
+          <span class="gauge-max">/ 10</span>
+        </div>
+      </div>
+      <div id="score-label" class="score-label"></div>
+    </div>
+  </main>
+
+<script src="script.js"></script>
+</body>
+</html>
